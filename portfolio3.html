@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Global Nigeria Limited | Portfolio</title>
+  <style>
+    :root {
+      --primary-color: #f7931e;
+      --secondary-color: #2c2c2c;
+      --text-color: #333;
+      --light-bg: #f9f9f9;
+      --white: #fff;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #f7931e;
+      --secondary-color: #111;
+      --text-color: #f1f1f1;
+      --light-bg: #1a1a1a;
+      --white: #2c2c2c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      background: var(--secondary-color);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Toggle Button */
+    .toggle-theme {
+      background: var(--primary-color);
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-theme:hover {
+      background: #d87e17;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url("https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1500&q=80")
+        center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+      text-align: center;
+      animation: fadeInUp 2s ease forwards;
+    }
+
+    .hero-content h2 {
+      font-size: 2.8rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #d87e17;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .about,
+    .projects,
+    .contact {
+      background: var(--white);
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 1rem auto;
+      line-height: 1.7;
+    }
+
+    .about {
+    padding: 6rem 2rem;
+    background: var(--white);
+    color: var(--text-color);
+  }
+
+  .about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  .about-image {
+    flex: 1;
+    min-width: 300px;
+    animation: slideInLeft 1.2s ease forwards;
+  }
+
+  /* Profile Image Section */
+    .profile-section {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid var(--primary-color);
+      margin: 0 auto 1rem;
+      animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .profile-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .profile-section h2 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-section p {
+      color: var(--text-color);
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .about-text {
+    flex: 1;
+    min-width: 300px;
+    animation: slideInRight 1.2s ease forwards;
+  }
+
+  .about-text h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-text strong {
+    color: var(--primary-color);
+  }
+
+  .btn {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #d87e17;
+  }
+
+  @keyframes slideInLeft {
+    from {opacity: 0; transform: translateX(-40px);}
+    to {opacity: 1; transform: translateX(0);}
+  }
+
+  @keyframes slideInRight {
+    from {opacity: 0; transform: translateX(40px);}
+    to {opacity: 1; transform: translateX(0);}
+  }
+
+  [data-theme="dark"] .about {
+    background: var(--secondary-color);
+  }
+
+  [data-theme="dark"] .about-text p {
+    color: #ddd;
+  }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--light-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-card h4 {
+      color: var(--primary-color);
+      margin: 1rem 0 0.5rem;
+    }
+
+    .project-card p {
+      color: #555;
+      padding: 0 1rem 1.5rem;
+    }
+
+    .project-card a{
+        text-decoration: none;
+    }
+
+    [data-theme="dark"] .project-card p {
+      color: #ccc;
+    }
+
+    .text-white {
+        color: #ffffff !important;
+    }
+    [data-theme="dark"] nav ul li a {
+        color: white;
+     }
+
+     [data-theme="dark"] nav ul li a:hover {
+        color: var(--primary-color);
+     }
+
+    /* .text-white1 {
+        color: #ffffff !important;
+    }
+
+    .text-white1 :hover{
+        color: var(--primary-color);
+    } */
+
+    /* Contact */
+    .contact p {
+      margin-bottom: 1.5rem;
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      color: var(--white);
+      padding: 0.9rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #20b857;
+    }
+
+    footer {
+      background: var(--secondary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+/* ===== Desktop Navbar ===== */
+    header.desktop {
+      background: var(--secondary-color);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    header.desktop h1 {
+      color: var(--primary-color);
+      font-size: 1.6rem;
+    }
+
+    header.desktop nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    header.desktop nav ul li a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    header.desktop nav ul li a:hover {
+      color: var(--primary-color);
+    }
+
+     [data-theme="dark"] header.desktop nav ul li a:hover {
+        color: var(--primary-color);
+     }
+
+    [data-theme="dark"] header.desktop nav ul li a{
+        color: white;
+     }
+
+
+    .toggle-theme {
+      background: var(--primary-color);
+      border: none;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* ===== Mobile Navbar ===== */
+    header.navbar {
+      display: none;
+      background: var(--secondary-color);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    #navMenu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: var(--secondary-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: left 0.4s ease;
+      z-index: -999;
+    }
+
+    #navMenu.active {
+      left: 0;
+    }
+
+    #navMenu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.6rem;
+      margin: 1rem 0;
+      font-weight: 600;
+    }
+
+    #navMenu button{
+        color: white;
+      text-decoration: none;
+      font-size: 1.6rem;
+      margin: 1rem 0;
+      font-weight: 600;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu-toggle,
+    .close-toggle,
+    .toggle-theme {
+      font-size: 1.8rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .close-toggle {
+      display: none;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      header.desktop {
+        display: none;
+      }
+
+      header.navbar {
+        display: block;
+      }
+
+      .menu-toggle.hide {
+        display: none;
+      }
+
+      .close-toggle.show {
+        display: block;
+      }
+
+      .toggle-theme.show {
+        display: block;
+      }
+    }
+
+    section {
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body data-theme="light">
+    <!-- ===== Desktop Navbar ===== -->
+  <header class="desktop">
+    <h1>John Builders</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="toggle-theme" id="themeToggle">🌙</button>
+  </header>
+
+  <!-- ===== Mobile Navbar ===== -->
+  <header class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">John Michael</h1>
+      <div class="nav-controls">
+          <button class="menu-toggle" id="menuToggle">☰</button>
+          <button class="close-toggle" id="closeToggle">✕</button>
+        </div>
+    </div>
+    
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>      
+        <button class="toggle-theme" id="themeToggle">🌙</button>
+    </nav>
+  </header>
+
+
+
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2 class="text-white">Building the Future, One Project at a Time</h2>
+      <p class="text-white">
+        Professional construction services for residential, commercial, and
+        industrial projects — reliable, durable, and on time.
+      </p>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+  </section>
+
+
+  <div class="profile-section">
+    <div class="profile-image">
+      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80" alt="John Builder">
+    </div>
+    <h2>John Kelechi Joseph</h2>
+    <p>Experienced Civil Engineer & Construction Manager — transforming blueprints into reality.</p>
+  </div>
+
+  <!-- About -->
+  <section id="about" class="about">
+  <div class="about-container">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=700&q=80" alt="Construction Engineer">
+    </div>
+
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m <strong>John Kelechi Joseph</strong>, a professional <strong>Civil Engineer</strong> with over a decade of experience managing and building complex projects — from residential duplexes to large commercial structures.
+      </p>
+      <p>
+        I combine technical precision, quality craftsmanship, and safety standards to ensure every project is completed on time, within budget, and built to last.
+      </p>
+      <p>
+        My mission is to bring clients’ visions to life — transforming blueprints into solid foundations for the future.
+      </p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+        <div class="project-card">
+             <a href="project1.html" class="project-card">
+             <img
+             src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+             alt="Building"
+             />
+             <h4>Residential Duplex</h4>
+             <p>
+                 A modern family duplex constructed with high-quality materials and
+                 elegant design.
+                </p>
+            </a>
+        </div>
+
+        
+        <div class="project-card">
+                <a href="project2.html" class="project-card">
+                <img
+                src="https://images.unsplash.com/photo-1495433324511-bf8e92934d90"
+                alt="Bridge"
+                />
+                <h4>Concrete Bridge</h4>
+                <p>
+                    Durable bridge designed to withstand heavy loads and harsh weather
+                    conditions.
+                </p>
+            </a>
+        </div>
+
+        
+        <div class="project-card">
+                <a href="project3.html" class="project-card">
+                <img
+                src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+                alt="Site"
+                />
+                <h4>Commercial Building</h4>
+                <p>
+                    Multi-purpose office complex built with efficiency and modern
+                    standards in mind.
+                </p>
+            </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Get In Touch</h2>
+    <p>
+      Looking to start your next project? Let’s discuss your ideas. I provide
+      consultations, site visits, and quotations.
+    </p>
+    <a
+      href="https://wa.me/2348060062729?text=Hello%20John!%20I%20would%20like%20to%20discuss%20a%20construction%20project."
+      target="_blank"
+      class="whatsapp-btn"
+      >Chat on WhatsApp</a
+    >
+  </section>
+
+  <footer class="text-white">© 2025 Joseph Global Nigeria Limited | Built with Strength & Precision 💪</footer>
+
+  <script>
+
+  const body = document.body;
+  const themeToggles = document.querySelectorAll("#themeToggle");
+  const menuToggle = document.getElementById("menuToggle");
+  const closeToggle = document.getElementById("closeToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  // Toggle Theme for both buttons
+  themeToggles.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const current = body.getAttribute("data-theme");
+      const newTheme = current === "light" ? "dark" : "light";
+      body.setAttribute("data-theme", newTheme);
+
+      // Update text/icons on both buttons
+      themeToggles.forEach(b => {
+        b.textContent = newTheme === "light" ? "🌙" : "☀️";
+      });
+    });
+  });
+
+  // Open Menu
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.add("active");
+    menuToggle.classList.add("hide");
+    closeToggle.classList.add("show");
+  });
+
+  // Close Menu
+  closeToggle.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+    menuToggle.classList.remove("hide");
+    closeToggle.classList.remove("show");
+  });
+
+  // Auto-close when a link is clicked
+  document.querySelectorAll("#navMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      menuToggle.classList.remove("hide");
+      closeToggle.classList.remove("show");
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+
